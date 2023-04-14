@@ -27,6 +27,8 @@ const HomePage = () => {
   };
 
   const getDataInArray = (data: object) => {
+    alcoholData = [];
+    magnesuimData = [];
     Object.entries(data).forEach(([key, value]: Array<number>)=> {
       alcoholData.push(key)
       magnesuimData.push(value)
