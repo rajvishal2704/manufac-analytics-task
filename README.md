@@ -24,24 +24,27 @@ The libraries used beside core **React** are as follow:
 |-|--|
 |[***echarts-for-react***](https://www.npmjs.com/package/echarts-for-react)|To represent Data in chart format conveniently
 
-**
+## Chart Representation
+Functions to show bar chart - getAlcholoToMagnesiumData
+and line chart - getFlavanoidsToAshData
 
 ## ScreenShots
 
-Below are the screen shots for web and mobile view respectivily
+Below are the screen shots for web and mobile view respectively
 
 - ***Web***
-
 ![enter image description here](https://raw.githubusercontent.com/rajvishal2704/manufac-analytics-task/main/sample-screenshots/web.png)
 
 - ***IPhone X***
+![enter image description here](https://raw.githubusercontent.com/rajvishal2704/manufac-analytics-task/main/sample-screenshots/iphone%2010.png)
 
-![enter image description here](https://raw.githubusercontent.com/rajvishal2704/manufac-analytics-task/main/sample-screenshots/iPhone%20X.png)
 
 ***iPhone SR***
+![enter image description here](https://raw.githubusercontent.com/rajvishal2704/manufac-analytics-task/main/sample-screenshots/iphoneSE.png)
 
-![enter image description here](https://raw.githubusercontent.com/rajvishal2704/manufac-analytics-task/main/sample-screenshots/iPhoneSR.png)
 
-***Pixel 5***
+***IPad***
+![enter image description here](https://raw.githubusercontent.com/rajvishal2704/manufac-analytics-task/main/sample-screenshots/iPad.png)
 
-![enter image description here](https://raw.githubusercontent.com/rajvishal2704/manufac-analytics-task/main/sample-screenshots/Pixel%205.png)
+***IPad Pro***
+![enter image description here](https://raw.githubusercontent.com/rajvishal2704/manufac-analytics-task/main/sample-screenshots/Ipad%20Pro.png)
