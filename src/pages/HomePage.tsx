@@ -11,27 +11,46 @@ const HomePage = () => {
   let magnesuimData: Array<number> = [];
   let flavanoidsData: Array<number> = [];
   let ashData: Array<number> = [];
-  let uniqueAlchol: number;
-  useEffect(() => {
-    getChartData().then((response: Record<string, any>) => {
-      alcoholData = [response[0].Alcohol];
-      uniqueAlchol = response[0].Alcohol;
-      response.forEach((data: Record<string, any>) => {
-        flavanoidsData.push(data.Flavanoids);
-        ashData.push(data.Ash);
-        magnesuimData.push(data.Magnesium);
-        uniqueAlchol !== data.Alcohol && alcoholData.push(data.Alcohol);
-        uniqueAlchol = data.Alcohol;
-      });
+  const minAlcoholMagnesium: Record<any, any>= {};
 
+  const getAlcholoToMagnesiumData = (response: Array<object>) => {
+    response.forEach((obj: Record<string, any>) => {
+      if(minAlcoholMagnesium.hasOwnProperty(obj.Alcohol)) {
+        if(obj.Magnesium < minAlcoholMagnesium[obj.Alcohol]) {
+          minAlcoholMagnesium[obj.Alcohol] = obj.Magnesium;
+        }
+      } else {
+        minAlcoholMagnesium[obj.Alcohol] = obj.Magnesium;
+      }
+    });
+    return getDataInArray(minAlcoholMagnesium);
+  };
+
+  const getDataInArray = (data: object) => {
+    Object.entries(data).forEach(([key, value]: Array<number>)=> {
+      alcoholData.push(key)
+      magnesuimData.push(value)
+    })
+  }
+
+  const getFlavanoidsToAshData = (response: Array<object>) => {
+    response.forEach((data: Record<string, any>) => {
+      flavanoidsData.push(data.Flavanoids);
+      ashData.push(data.Ash);
+    });
+  } 
+
+  useEffect(() => {
+    getChartData().then((response: Array<Record<string, any>>) => {
+      getAlcholoToMagnesiumData(response);
+      getFlavanoidsToAshData(response);
       setAlcohol(alcoholData);
       setMagnesium(magnesuimData);
       setFlavanoids(flavanoidsData);
       setAsh(ashData);
     });
   }, []);
-  console.log(alcohol);
-
+  
   const alcoholMagnesiumChart = {
     title: {
       text: "Alcohol to Magnesium",
